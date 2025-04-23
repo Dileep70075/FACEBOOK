@@ -17,10 +17,7 @@ mongoDB();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(cors());
-
 const bodyParser = require('body-parser');
-
-// CORS options
 const corsOptions = {
   origin: 'http://localhost:3000', // Allow only this origin
   optionsSuccessStatus: 200, // For legacy browser support

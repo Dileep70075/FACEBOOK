@@ -9,27 +9,27 @@ const Dashboard = () => {
     email: '',
     password: '',
     address: '',
-    photo:null
+    photo: null
   })
 
   useEffect(() => {
     async function fetchData() {
-    try{
-        const token =  localStorage.getItem('userToken')
-        const response = await axios.get('http://localhost:3001/users/my-profile',{
-            headers: {
-                Authorization: `Bearer ${token}`,
-              },
+      try {
+        const token = localStorage.getItem('userToken')
+        const response = await axios.get('http://localhost:3001/users/my-profile', {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         })
         if (response.data.success) {
-            setUser(response.data.data);
-          } else {
-           
-          }
-    }
- catch(error){
-    setError("internal error",error);
- }
+          setUser(response.data.data);
+        } else {
+
+        }
+      }
+      catch (error) {
+        setError("internal error", error);
+      }
     }
     fetchData()
   }, [])
@@ -60,12 +60,12 @@ const Dashboard = () => {
               <CTableDataCell>{user.address}</CTableDataCell>
               {/* <CTableDataCell>{user.photo}</CTableDataCell> */}
               <CTableDataCell>
-  {user.photo ? (
-    <img src={`http://localhost:3001/${user.photo}`} alt="User Photo" style={{ width: '100px', height: 'auto' }} />
-  ) : (
-    'No photo available'
-  )}
-</CTableDataCell>
+                {user.photo ? (
+                  <img src={`http://localhost:3001/${user.photo}`} alt="User Photo" style={{ width: '100px', height: 'auto' }} />
+                ) : (
+                  'No photo available'
+                )}
+              </CTableDataCell>
             </CTableRow>
           </CTableBody>
         </CTable>
