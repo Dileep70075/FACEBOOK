@@ -69,7 +69,6 @@ const Typography = () => {
               <CTableRow key={user._id}>
                 <CTableDataCell>{user.email}</CTableDataCell>
                 <CTableDataCell>{user.fname}</CTableDataCell>
-
                 {
                   user.myRequest === undefined && user.userRequest === undefined ?
                     <CTableDataCell>
@@ -78,7 +77,6 @@ const Typography = () => {
                       </CButton>
                     </CTableDataCell> : null
                 }
-
                 {
                   user.myRequest != undefined && user.myRequest.status === 'pending' ?
                     <CTableDataCell>
